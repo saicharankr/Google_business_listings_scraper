@@ -53,7 +53,7 @@ def no_pages(n):
         driver.find_element_by_xpath('//*[@id="n7lv7yjyC35__section-pagination-button-next"]').click()
         print("clicked")
         time.sleep(6)
-    combined_csv=pd.concat((pd.read_csv(file,encoding='latin1') for file in files),ignore_index=True)
+    combined_csv=pd.concat((pd.read_csv(file,encoding='latin1') for file in files),ignore_index=True).drop_duplicates('phone_numbers')
     combined_csv.to_csv('D:/workbench/Webscraping/final_collection.csv',index=False, encoding='utf-8-sig')
 
- no_pages(4):          
+no_pages(4)          
